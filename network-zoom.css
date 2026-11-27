@@ -1,0 +1,48 @@
+#nb-relations .nr-graph {
+  --nr-grid-zoom: 1;
+  background-image: radial-gradient(var(--nr-grid) calc(.8px * var(--nr-grid-zoom)), transparent calc(.9px * var(--nr-grid-zoom)));
+  background-size: calc(20px * var(--nr-grid-zoom)) calc(20px * var(--nr-grid-zoom));
+}
+#nb-relations .nr-plot { overflow: hidden; touch-action: none; user-select: none; -webkit-tap-highlight-color: transparent; }
+#nb-relations .nr-plot:focus { outline: none; }
+#nb-relations .nr-plot.is-zoomed { cursor: grab; }
+#nb-relations .nr-plot.is-panning, #nb-relations .nr-plot.is-panning * { cursor: grabbing; }
+#nb-relations .nr-graph-head { align-items: flex-start; }
+#nr-stats { min-width: 0; align-self: center; }
+.nr-zoom-controls {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  padding: 2px;
+  background: #fff;
+  border: 1px solid var(--shell-rule);
+  border-radius: 8px;
+  box-shadow: 0 1px 4px #00266b0a;
+}
+#nb-relations .nr-zoom-controls button {
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  padding: 0;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--shell-ink);
+  font: 500 17px/1 Inter,sans-serif;
+  cursor: pointer;
+}
+#nb-relations .nr-zoom-controls button:hover:not(:disabled) { background: var(--shell-tint); color: var(--shell-active); }
+#nb-relations .nr-zoom-controls button:disabled { opacity: .36; cursor: default; }
+.nr-zoom-controls [data-zoom="level"] {
+  min-width: 36px;
+  color: var(--shell-muted);
+  text-align: center;
+  font: 500 12px/1 Inter,sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+.nr-zoom-controls [data-zoom="reset"] { margin-left: 3px; }
+.nr-zoom-controls svg { height: 14px; width: 14px; }
+@media (pointer:coarse) {
+  #nb-relations .nr-zoom-controls button { width: 33px; height: 33px; }
+}
