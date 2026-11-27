@@ -83,7 +83,7 @@
   border-radius: 7px;
   background: var(--shell-bg);
 }
-.nr-picker-searchbox:focus-within { border-color: #9990df; }
+:root:not([data-pointer-input]) .nr-picker-searchbox:focus-within { border-color: #9990df; }
 .nr-picker-searchbox::before {
   content: '';
   flex: none;

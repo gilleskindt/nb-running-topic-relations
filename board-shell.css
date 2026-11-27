@@ -24,6 +24,7 @@
 }
 
 :root {
+  -webkit-tap-highlight-color: transparent;
   --shell-bg: #f5f7fa;
   --shell-ink: #00266b;
   --shell-muted: #596d8e;
@@ -44,6 +45,7 @@ body {
 }
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
+:root[data-pointer-input] :focus { outline: none !important; }
 .fixed-layout {
   display: grid;
   grid-template-columns: clamp(302px, 30vw, 388px) minmax(0, 1fr);
@@ -186,7 +188,7 @@ app-global-search .input-group-wrapper {
 }
 app-global-search ui-input-group, .tr-input-wrapper, app-global-search input { flex: 1; min-width: 0; }
 app-global-search input { border: 0; background: transparent; padding: 5px; }
-app-global-search .input-group-wrapper:focus-within { outline: 2px solid var(--shell-active); }
+:root:not([data-pointer-input]) app-global-search .input-group-wrapper:focus-within { outline: 2px solid var(--shell-active); }
 app-global-search input:focus { outline: 0; }
 .input-prefix-container { min-width: 0; max-width: 54%; margin-left: 4px; padding: 3px 6px; gap: 4px;
   color: var(--shell-active); border-radius: 5px; background: var(--shell-tint); font-size: 13px; }

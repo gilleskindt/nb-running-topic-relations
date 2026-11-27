@@ -6,6 +6,15 @@ const shade = get('menu-shade');
 const smallScreen = matchMedia('(max-width: 850px)');
 const main = document.querySelector('main');
 
+document.addEventListener('pointerdown', () => {
+  document.documentElement.setAttribute('data-pointer-input', '');
+}, true);
+document.addEventListener('keydown', event => {
+  if (['Tab', 'Enter', 'Escape', 'Home', 'End', ' '].includes(event.key) || event.key.startsWith('Arrow')) {
+    document.documentElement.removeAttribute('data-pointer-input');
+  }
+}, true);
+
 function syncMenu() {
   const drawerOpen = smallScreen.matches && document.body.classList.contains('menu-open');
   const expanded = smallScreen.matches ? drawerOpen : !document.body.classList.contains('menu-closed');

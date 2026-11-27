@@ -34,9 +34,8 @@
 
 #nb-relations .nr-graph-head { padding: 19px 22px 4px; }
 #nb-relations .nr-plot { flex: 1 1 0; height: 0; min-height: 0; }
-#nb-relations .nr-mark:focus-visible { outline: none; }
-#nb-relations [data-pair] { -webkit-tap-highlight-color: transparent; }
-#nb-relations .nr-plot [data-pair]:focus { outline: none; }
+#nb-relations .nr-plot :is([data-topic], [data-pair]):focus { outline: none; }
+:root[data-pointer-input] #nb-relations .nr-ring { visibility: hidden; }
 #nb-relations :is(.nr-preview, :focus-visible) [data-dot],
 #nb-relations [data-dot].nr-preview {
   fill: var(--nr-accent);
