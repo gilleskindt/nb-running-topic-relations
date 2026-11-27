@@ -55,9 +55,6 @@
     #nb-relations dt{color:var(--nr-secondary)}#nb-relations dd{margin:0}
     #nb-relations .nr-pick{display:grid;gap:5px;font-size:12px;color:var(--nr-secondary);margin-top:12px}
     #nb-relations .nr-pick select{width:100%}
-    #nb-relations .nr-question{margin-top:14px;color:var(--nr-secondary);font-size:12px}
-    #nb-relations .nr-question summary{cursor:pointer;color:var(--nr-accent)}
-    #nb-relations .nr-question p{margin-top:7px}
     #nb-relations .nr-link-label{fill:var(--nr-accent);font-weight:650}
     #nb-relations .nr-label{fill:var(--nr-ink);paint-order:stroke;stroke:var(--nr-canvas);stroke-width:3.5px;stroke-linejoin:round}
     #nb-relations .nr-mark,#nb-relations .nr-hot{cursor:pointer}
@@ -278,8 +275,7 @@
         panel.dataset.mode='pair';
         html=back(t>=0?'Topic details':'Board overview')+pairTopics(e,true)+
           '<div class="nr-kpi">'+pct(e.score)+'</div><p class="nr-kpi-label">Jaccard overlap</p><dl><div><dt>Tagged with both</dt><dd>'+fmt(e.count)+'</dd></div><div><dt>Tagged with either</dt><dd>'+fmt(e.union)+'</dd></div></dl>'+
-          overlapExplanation(e)+
-          (e.count?'<details class="nr-question"><summary>Evidence question</summary><p>'+escape('Which shared documents explain the overlap between '+names[e.i]+' and '+names[e.j]+'? Use dated examples from the '+fmt(e.count)+' documents tagged with both.')+'</p></details>':'');
+          overlapExplanation(e);
       }else if(t>=0){
         panel.dataset.mode='topic';
         const related=edges.filter(e=>e.i===t||e.j===t);
